@@ -1,3 +1,5 @@
 {{outlet}}
-<h2 class="city-name">{{model.name}}</h2>, {{model.sys.country}}
-<span class="city-temp">{{model.main.temp}}</span>°C ({{model.main.temp_min}}°C - {{model.main.temp_max}}°C)
+<h2><span class="city-name">{{model.name}}</span>, {{model.sys.country}} <img alt={{model.iconAlt}} title={{model.iconAlt}} src={{model.iconUrl}} /></h2>
+<p><span class="city-temp">{{model.main.temp}}</span>°C ({{model.main.temp_min}}°C - {{model.main.temp_max}}°C)</p>
+<p>{{weather-icon "sunrise" title="Sunrise"}} {{model.sunrise}}<br/>
+{{weather-icon "sunset" title="Sunset"}} {{model.sunset}}</p>
