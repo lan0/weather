@@ -10,9 +10,7 @@ export default DS.RESTSerializer.extend({
 
   extractArray(store, type, payload) {
     if (payload.list === undefined) {
-      payload.list = [
-        payload
-      ];
+      payload.list = [];
     }
     payload = {
       cities: payload.list
