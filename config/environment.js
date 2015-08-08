@@ -16,6 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    openWeatherMap: {
+      apiKey: 'd50a75befd108d8a3c588ae274a87219',
+      units: 'metric'
     }
   };
 
@@ -42,6 +47,11 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV.contentSecurityPolicy = {
+    'connect-src': "'self' http://api.openweathermap.org",
+    'style-src': "'self' 'unsafe-inline'"
+  };
 
   return ENV;
 };
