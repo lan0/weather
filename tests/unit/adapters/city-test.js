@@ -14,7 +14,7 @@ test('it transforms the find id into a query parameter', function(assert) {
 
   const url = adapter.buildURL('city', 'gotham', [], 'find');
 
-  assert.equal(url, 'http://api.openweathermap.org/data/2.5/weather?' +
+  assert.equal(url, './api/weather?' +
     'q=gotham&' +
     'APPID=' + apiKey + '&' +
     'units=' + units, 'url parameters get attached');

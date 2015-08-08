@@ -42,6 +42,17 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV.api = {
+      host: '.',
+      namespace: 'api',
+      authPath: ''
+    };
+  } else {
+    ENV.api = {
+      host: 'http://api.openweathermap.org',
+      namespace: 'data/2.5'
+    };
   }
 
   if (environment === 'production') {

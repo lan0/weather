@@ -1,10 +1,7 @@
 import DS from 'ember-data';
 import Config from '../config/environment';
 
-export default DS.RESTAdapter.extend({
-  host: 'http://api.openweathermap.org',
-  namespace: 'data/2.5',
-
+export default DS.RESTAdapter.extend(Config.api, {
   params: {
     APPID: Config.openWeatherMap.apiKey,
     units: Config.openWeatherMap.units

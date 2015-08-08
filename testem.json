@@ -8,5 +8,11 @@
   "launch_in_dev": [
     "PhantomJS",
     "Chrome"
-  ]
+  ],
+  "proxies": {
+    "/api": {
+      "port": 4200,
+      "host": "localhost"
+    }
+  }
 }

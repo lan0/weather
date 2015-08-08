@@ -14,7 +14,7 @@ test('it builds the url according to config params', function(assert) {
 
   const url = adapter.buildURL();
 
-  assert.equal(url, 'http://api.openweathermap.org/data/2.5?' +
+  assert.equal(url, './api?' +
     'APPID=' + apiKey + '&' +
     'units=' + units + '', 'url parameters get attached');
 });

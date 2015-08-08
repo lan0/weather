@@ -23,6 +23,7 @@ test('the search works', function(assert) {
   andThen(function() {
     assert.equal(currentURL(), '/city/vienna', 'redirect on search');
     assert.equal(find('.city-name').text().trim(), 'Vienna', 'city is correct');
+    assert.equal(find('.city-temp').text().trim(), '31.97', 'temperature is correct');
   });
 });
 
