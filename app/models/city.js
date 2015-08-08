@@ -8,6 +8,7 @@ export default DS.Model.extend({
   main: DS.attr(),
   weather: DS.attr(),
   wind: DS.attr(),
+  sys: DS.attr(),
 
   timeOfCalculation: Ember.computed('dt', function() {
     return new Date(this.get('dt') * 1000);
