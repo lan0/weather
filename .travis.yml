@@ -20,4 +20,5 @@ install:
   - bower install
 
 script:
-  - npm test
+  - ember serve &
+  - ember test
