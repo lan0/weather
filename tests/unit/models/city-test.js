@@ -7,11 +7,12 @@ moduleForModel('city', 'Unit | Model | city', {
 });
 
 test('timeOfCalculation gets computed correctly', function(assert) {
-  var model = this.subject();
+  const model = this.subject();
+  const time = 1439034608;
 
   Ember.run(() => {
-    model.set('dt', 1439034608);
+    model.set('dt', time);
   });
 
-  assert.equal(model.get('timeOfCalculation'), 'Sat Aug 08 2015 13:50:08 GMT+0200 (CEST)', 'date gets correctly built');
+  assert.equal(model.get('timeOfCalculation').getTime(), time * 1000, 'date gets correctly built');
 });
