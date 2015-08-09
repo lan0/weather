@@ -45,5 +45,5 @@ module.exports = function(app) {
     });
   });
 
-  app.use('/api/weather', weatherRouter);
+  app.use('/api/ow/weather', weatherRouter);
 };

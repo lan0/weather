@@ -21,6 +21,11 @@ module.exports = function(environment) {
     openWeatherMap: {
       apiKey: 'd50a75befd108d8a3c588ae274a87219',
       units: 'metric'
+    },
+
+    forecast: {
+      apiKey: 'd5127cacf75b588d4a3fd4a5923a825b',
+      units: 'si'
     }
   };
 
@@ -43,15 +48,22 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
-    ENV.api = {
+    ENV.openWeatherApi = {
       host: '.',
-      namespace: 'api',
-      authPath: ''
+      namespace: 'api/ow'
+    };
+    ENV.forecastApi = {
+      host: '.',
+      namespace: 'api/fo'
     };
   } else {
-    ENV.api = {
+    ENV.openWeatherApi = {
       host: 'http://api.openweathermap.org',
       namespace: 'data/2.5'
+    };
+    ENV.forecastApi = {
+      host: 'https://api.forecast.io',
+      namespace: 'forecast'
     };
   }
 
@@ -60,7 +72,7 @@ module.exports = function(environment) {
   }
 
   ENV.contentSecurityPolicy = {
-    'connect-src': "'self' http://api.openweathermap.org",
+    'connect-src': "'self' http://api.openweathermap.org https://api.forecast.io",
     'style-src': "'self' 'unsafe-inline'"
   };
 

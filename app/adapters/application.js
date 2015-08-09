@@ -1,7 +1,8 @@
 import DS from 'ember-data';
 import Config from '../config/environment';
+import attachParams from '../utils/attach-params';
 
-export default DS.RESTAdapter.extend(Config.api, {
+export default DS.RESTAdapter.extend(Config.openWeatherApi, {
   params: {
     APPID: Config.openWeatherMap.apiKey,
     units: Config.openWeatherMap.units
@@ -9,21 +10,6 @@ export default DS.RESTAdapter.extend(Config.api, {
 
   buildURL() {
     var url = this._super.apply(this, arguments);
-    return this._attachParams(url);
-  },
-
-  _attachParams(url) {
-    if (url.indexOf('?') === -1 && url.indexOf('&') === -1) {
-      url += '?';
-    } else {
-      url += '&';
-    }
-    const params = this.get('params');
-    let chunks = [];
-    for (let param in params) {
-      chunks.push(param + '=' + params[param]);
-    }
-    chunks = chunks.join('&');
-    return url + chunks;
+    return attachParams(url, this.get('params'));
   }
 });
