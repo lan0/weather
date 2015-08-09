@@ -5,7 +5,7 @@ module.exports = function(app) {
   var forecastRouter = express.Router();
 
   forecastRouter.get('/', function(req, res) {
-    res.send({
+    res.jsonp({
       "latitude": 16.372778,
       "longitude": -48.209206,
       "timezone": "Etc/GMT+3",

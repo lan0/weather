@@ -16,10 +16,11 @@ moduleForModel('forecast', 'Unit | Serializer | forecast', {
 
 test('it formats correctly', function(assert) {
   const response = {
-    id: 1
+    latitude: 13,
+    longitude: 46
   };
 
-  const jsonApi = serializer.normalizeSingleResponse(store, store.modelFor('forecast'), response, 1);
+  const json = serializer.transformPayload(response);
 
-  assert.deepEqual(jsonApi.data.attributes, response);
+  assert.equal(json.forecast.id, '13,46', 'it builds the id correctly');
 });

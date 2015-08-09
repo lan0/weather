@@ -11,6 +11,7 @@ export default Ember.Route.extend({
         'forecast',
         city.get('coord.lat') + ',' + city.get('coord.lon')
       ));
+      this.controllerFor('city').set('model', city);
     });
   }
 });
