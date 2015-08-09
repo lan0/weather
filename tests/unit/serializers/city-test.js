@@ -21,9 +21,9 @@ test('it replaces list with cities', function(assert) {
     }]
   };
 
-  const json = serializer.extractArray(store, store.modelFor('city'), response);
+  const jsonApi = serializer.normalizeArrayResponse(store, store.modelFor('city'), response);
 
-  assert.deepEqual(json, [{name: 'Gotham'}]);
+  assert.deepEqual(jsonApi.data[0].attributes, {name: 'Gotham'});
 });
 
 test('it adds a key for the city', function(assert) {
@@ -31,7 +31,7 @@ test('it adds a key for the city', function(assert) {
     name: 'Gotham'
   };
 
-  const json = serializer.extractSingle(store, store.modelFor('city'), response, 1);
+  const jsonApi = serializer.normalizeSingleResponse(store, store.modelFor('city'), response, 1);
 
-  assert.deepEqual(json, {name: 'Gotham'});
+  assert.deepEqual(jsonApi.data.attributes, {name: 'Gotham'});
 });

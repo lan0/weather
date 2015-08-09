@@ -6,6 +6,11 @@ export default Ember.Route.extend({
     if (! search) {
       search = 'Vienna';
     }
-    return this.get('store').find('city', search);
+    return this.get('store').find('city', search).then((city) => {
+      this.controllerFor('city').set('forecast', this.get('store').find(
+        'forecast',
+        city.get('coord.lat') + ',' + city.get('coord.lon')
+      ));
+    });
   }
 });

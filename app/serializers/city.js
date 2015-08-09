@@ -1,20 +1,18 @@
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
-  extractSingle(store, type, payload, id) {
+  isNewSerializerAPI: true,
+
+  normalizeSingleResponse(store, type, payload, id) {
     payload = {
       city: payload
     };
     return this._super(store, type, payload, id);
   },
 
-  extractArray(store, type, payload) {
-    if (payload.list === undefined) {
-      payload.list = [];
-    }
-    payload = {
-      cities: payload.list
-    };
+  normalizeArrayResponse(store, type, payload) {
+    payload.cities = payload.list;
+    delete payload.list;
     return this._super(store, type, payload);
   }
 });

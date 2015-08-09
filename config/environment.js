@@ -73,7 +73,8 @@ module.exports = function(environment) {
 
   ENV.contentSecurityPolicy = {
     'connect-src': "'self' http://api.openweathermap.org https://api.forecast.io",
-    'style-src': "'self' 'unsafe-inline'"
+    'style-src': "'self' 'unsafe-inline'",
+    'script-src': "'self' https://api.forecast.io"
   };
 
   return ENV;

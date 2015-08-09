@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default DS.Model.extend({
   name: DS.attr('string'),
   dt: DS.attr('number'),
-  coordinates: DS.attr(),
+  coord: DS.attr(),
   main: DS.attr(),
   weather: DS.attr(),
   wind: DS.attr(),
