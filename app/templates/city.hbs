@@ -1,5 +1,29 @@
 {{outlet}}
-<h2><span class="city-name">{{model.name}}</span>, {{model.sys.country}} <img alt={{model.iconAlt}} title={{model.iconAlt}} src={{model.iconUrl}} /></h2>
+<h2>openweathermap.org</h2>
+<span class="city-name">{{model.name}}</span>, {{model.sys.country}} <img alt={{model.iconAlt}} title={{model.iconAlt}} src={{model.iconUrl}} />
 <p><span class="city-temp">{{model.main.temp}}</span>°C ({{model.main.temp_min}}°C - {{model.main.temp_max}}°C)</p>
 <p>{{weather-icon "sunrise" title="Sunrise"}} {{model.sunrise}}<br/>
 {{weather-icon "sunset" title="Sunset"}} {{model.sunset}}</p>
+<hr />
+{{#if forecast}}
+  <h2>forecast.io</h2>
+  <p>{{weather-icon forecast.currently.weatherIcon}} <span class="forecast-temp">{{forecast.currently.temperature}}</span>°C</p>
+  <h3>Hourly forecast</h3>
+  <p>
+    {{forecast.hourly.summary}}
+    <ul class="hourly-forecasts">
+    {{#each forecast.hourly.forecasts as |weather|}}
+      <li>{{weather.time}}: {{weather.temperature}}°C</li>
+    {{/each}}
+    </ul>
+  </p>
+  <h3>Daily forecast</h3>
+  <p>
+    {{forecast.daily.summary}}
+    <ul class="daily-forecasts">
+      {{#each forecast.daily.forecasts as |weather|}}
+        <li>{{weather.time}}: {{weather.temperatureMin}}°C - {{weather.temperatureMax}}°C</li>
+      {{/each}}
+    </ul>
+  </p>
+{{/if}}

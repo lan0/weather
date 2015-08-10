@@ -40,3 +40,16 @@ test('the search works with country', function(assert) {
     assert.equal(find('.city-name').text().trim(), 'Vienna', 'city is correct');
   });
 });
+
+test('additional forecasts appear from forecast.io', function(assert) {
+  visit('/');
+
+  andThen(function() {
+    fillIn('.search-input', 'vienna,at');
+    click('.search-button');
+  });
+
+  andThen(function() {
+    assert.equal(find('.forecast-temp').text(), 79.43, 'forecast.io data gets loaded');
+  });
+});
